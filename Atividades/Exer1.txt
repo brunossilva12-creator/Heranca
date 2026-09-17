@@ -1,0 +1,47 @@
+class Animal
+{
+    public string Nome { get; set; }
+
+    public void Comer()
+    {
+        Console.WriteLine("O animal está comendo.");
+    }
+}
+----------------------------------
+class Cachorro : Animal
+{
+    public void Latido()
+    {
+        Console.WriteLine("AU!");
+    }
+}
+----------------------------------
+class Gato : Animal
+{
+    public void Miado()
+    {
+        Console.WriteLine("Miau!");
+    }
+}
+----------------------------------
+class Program
+{
+    static void Main()
+    {
+        Cachorro cachorro = new Cachorro();
+        cachorro.Nome = "Osvaldo";
+
+        Gato gato = new Gato();
+        gato.Nome = "Bolinha de neve";
+
+        Console.WriteLine("Cachorro: " + cachorro.Nome);
+        cachorro.Comer();
+        cachorro.Latido();
+
+        Console.WriteLine();
+
+        Console.WriteLine("Gato: " + gato.Nome);
+        gato.Comer();
+        gato.Miado();
+    }
+}
