@@ -1,0 +1,57 @@
+class Funcionario
+{
+    public string NomeFuncionario { get; set; }
+    public double Salario { get; set; }
+
+    public virtual double CalcularBonusAnual()
+    {
+        return Salario * 0.10;
+    }
+}
+-------------------------------------
+class Gerente : Funcionario
+{
+    public double CalcularSalarioAnual()
+    {
+        return Salario * 0.15 + 1000;
+    }
+}
+-------------------------------------
+class Desenvolvedor : Funcionario
+{
+    public double CalcularSalarioAnual()
+    {
+        return Salario * 0.12;
+    }
+}
+------------------------------------
+class Program
+{
+    static void Main()
+    {
+        Funcionario funcionario = new Funcionario();
+        funcionario.NomeFuncionario = "Gabriel";
+        funcionario.Salario = 3000;
+        Console.WriteLine("Funcionário: " + funcionario.NomeFuncionario);
+        Console.WriteLine("Bônus salarial anual: R$ " + funcionario.CalcularBonusAnual());
+
+
+        Console.WriteLine();
+
+        Gerente gerente = new Gerente();
+        gerente.NomeFuncionario = "João Matheus";
+        gerente.Salario = 5000;
+        Console.WriteLine("Gerente: " + gerente.NomeFuncionario);
+        Console.WriteLine("Bônus salarial anual: R$ " + gerente.CalcularBonusAnual());
+
+        Console.WriteLine();
+
+        Desenvolvedor desenvolvedor = new Desenvolvedor();
+        desenvolvedor.NomeFuncionario = "Mathias";
+        desenvolvedor.Salario = 4000;
+        Console.WriteLine("Desenvolvedor: " + desenvolvedor.NomeFuncionario);
+        Console.WriteLine("Bônus anual: R$ " + desenvolvedor.CalcularBonusAnual());
+
+        Console.ReadKey();
+    }
+}
